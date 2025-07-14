@@ -16,7 +16,8 @@ ADMIN_IDS = ["5899761420"]  # Replace with your Telegram user ID
 
 # Google Sheets setup
 SCOPE = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-CREDS = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", SCOPE)
+import os
+CREDS = ServiceAccountCredentials.from_json_keyfile_dict(json.loads(os.environ.get('GOOGLE_CREDENTIALS')), SCOPE)
 CLIENT = gspread.authorize(CREDS)
 SHEET = CLIENT.open("DebreAminProgress").sheet1
 
