@@ -13,7 +13,7 @@ app = Flask(__name__)
 SCOPE = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 CREDS = ServiceAccountCredentials.from_json_keyfile_dict(json.loads(os.environ.get('GOOGLE_CREDENTIALS')), SCOPE)
 GC = gspread.authorize(CREDS)
-SHEET = GC.open("Debre Amin Sunday School").sheet1
+SHEET = GC.open("1blHMY-MOn-WlaASaU29Xoafwrue3c0Ag-1A6nLEME5U").sheet1
 
 # Telegram bot setup
 application = Application.builder().token(os.environ.get('BOT_TOKEN')).build()
